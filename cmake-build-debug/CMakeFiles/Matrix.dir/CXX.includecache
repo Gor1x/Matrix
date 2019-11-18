@@ -6,16 +6,10 @@
 
 #IncludeRegexTransform: 
 
-/home/egor/CLionProjects/Matrix/main.cpp
-string
--
-map
+/home/egor/CLionProjects/Matrix/matrix.cpp
+cstring
 -
 iostream
--
-cstdio
--
-cassert
 -
 matrix.h
 /home/egor/CLionProjects/Matrix/matrix.h

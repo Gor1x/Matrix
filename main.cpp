@@ -12,14 +12,14 @@ using std::size_t;
 using std::cin;
 using std::cout;
 
-int main(int, char **) {
+int main(int, char **)
+{
     std::string cmd, arg1, arg2;
     var_storage vars;
 
-/*
+
     freopen("../input.txt", "r", stdin);
     freopen("../output.txt", "w", stdout);
-*/
 
     while (cin)
     {
@@ -62,13 +62,15 @@ int main(int, char **) {
             cin >> arg1;
             assert(vars.count(arg1) && "Unknows var");
             vars[arg1]->print(stdout);
-        } else if (cmd == "cp_init")
+        }
+        else if (cmd == "cp_init")
         {
             cin >> arg1 >> arg2;
             assert(!vars.count(arg1) && "Already created var");
             assert(vars.count(arg2) && "Unknows var");
             vars[arg1] = new Matrix(*vars[arg2]);
-        } else if (cmd == "=")
+        }
+        else if (cmd == "=")
         {
             cin >> arg1 >> arg2;
             assert(vars.count(arg2) && "Unknows var");
@@ -133,7 +135,6 @@ int main(int, char **) {
             assert(vars.count(arg2) && "Unknows var");
             (*vars[arg1] * *vars[arg2]).print(stdout);
         }
-
     }
 
     for (var_storage::iterator it = vars.begin(); it != vars.end(); ++it)

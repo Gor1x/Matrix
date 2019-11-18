@@ -61,9 +61,9 @@ void Matrix::print(FILE* f) const
     {
         for (size_t j = 0; j < _cols; j++)
         {
-            std::cout << _data[i][j] <<" ";
+            fprintf(f, "%d ", _data[i][j]);
         }
-        std::cout << std::endl;
+        fprintf(f, "\n");
     }
 }
 
@@ -73,7 +73,6 @@ bool Matrix::operator==(const Matrix& m) const
     {
         for (size_t j = 0; j < _cols; j++)
         {
-            int value = m.get(i, j);
             if (_data[i][j] != m.get(i, j))
                 return false;
         }
