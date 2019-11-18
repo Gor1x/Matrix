@@ -1,0 +1,21 @@
+init a 2 2
+print a
+set a 0 0 1
+set a 0 1 1
+set a 1 1 1
+cp_init b a
+print b
+init c 1 6
+# c
+print c
+= c a
+print c
+* c a
++= a a
+== a b
+== b c
+!= a c
+set a 0 0 13
+-= c a
+print c
+exit
