@@ -3,6 +3,7 @@
 
 #include <cstdio>
 #include <cstddef>
+#include <algorithm>
 
 using std::size_t;
 
@@ -40,11 +41,13 @@ public:
 
 private:
 
+    Matrix plusWithMultipliedOnConstant(const Matrix &matrix, int value) const;
     void initDataArray(size_t r, size_t c);
 
     size_t _rows;
     size_t _cols;
     int **_data;
+
 };
 
 #endif

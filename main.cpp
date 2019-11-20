@@ -17,10 +17,10 @@ int main(int, char **)
     std::string cmd, arg1, arg2;
     var_storage vars;
 
-/*
-    freopen("../input.txt", "r", stdin);
-    freopen("../output.txt", "w", stdout);
-*/
+
+//    freopen("../input.txt", "r", stdin);
+//    freopen("../output.txt", "w", stdout);
+
 
     while (cin)
     {

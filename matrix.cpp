@@ -1,7 +1,6 @@
 #include <cstring>
 #include "matrix.h"
 
-
 void Matrix::initDataArray(size_t r, size_t c)
 {
     _data = new int* [r];
@@ -101,32 +100,12 @@ Matrix& Matrix::operator*=(const Matrix& m) {
 
 Matrix Matrix::operator+(const Matrix& m) const
 {
-    Matrix result = Matrix(_rows, _cols);
-
-    for (size_t i = 0; i < _rows; i++)
-    {
-        for (size_t j = 0; j < _cols; j++)
-        {
-            int value = get(i, j) + m.get(i, j);
-            result.set(i, j, value);
-        }
-    }
-    return result;
+    return plusWithMultipliedOnConstant(m, 1);
 }
 
 Matrix Matrix::operator-(const Matrix& m) const
 {
-    Matrix result = Matrix(_rows, _cols);
-
-    for (size_t i = 0; i < _rows; i++)
-    {
-        for (size_t j = 0; j < _cols; j++)
-        {
-            int value = get(i, j) - m.get(i, j);
-            result.set(i, j, value);
-        }
-    }
-    return result;
+    return plusWithMultipliedOnConstant(m, -1);
 }
 
 Matrix Matrix::operator*(const Matrix& m) const {
@@ -161,6 +140,20 @@ void Matrix::swapWith(Matrix &other) {
     std::swap(_data, other._data);
     std::swap(_rows, other._rows);
     std::swap(_cols, other._cols);
+}
+
+Matrix Matrix::plusWithMultipliedOnConstant(const Matrix &matrix, int constant) const {
+
+    Matrix result = Matrix(_rows, _cols);
+    for (size_t i = 0; i < _rows; i++)
+    {
+        for (size_t j = 0; j < _cols; j++)
+        {
+            int value = get(i, j) + matrix.get(i, j) * constant;
+            result.set(i, j, value);
+        }
+    }
+    return result;
 }
 
 
